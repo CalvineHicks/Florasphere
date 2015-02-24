@@ -1,0 +1,10 @@
+rc/com/dummy/soap/android/NetworkConstants.java
+*.class
+bin/
+gen/
+*.apk
+*.ap_
+*.dex
+proguard/
+local.properties
+*.log
