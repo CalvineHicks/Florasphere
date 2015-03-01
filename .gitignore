@@ -8,3 +8,5 @@ gen/
 proguard/
 local.properties
 *.log
+Florasphere/.classpath
+Florasphere/lint.xml
