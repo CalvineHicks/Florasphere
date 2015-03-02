@@ -9,7 +9,7 @@ local.properties
 *.log
 Florasphere/.classpath
 Florasphere/lint.xml
-*.gradle
+.gradle
 */local.properties
 */.idea/workspace.xml
 */.idea/libraries
