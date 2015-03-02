@@ -14,5 +14,5 @@ Florasphere/lint.xml
 */.idea/workspace.xml
 */.idea/libraries
 *.DS_Store
-*/build
+build/
 .idea
