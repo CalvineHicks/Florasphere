@@ -1,4 +1,3 @@
-rc/com/dummy/soap/android/NetworkConstants.java
 *.class
 bin/
 gen/
@@ -10,9 +9,9 @@ local.properties
 *.log
 Florasphere/.classpath
 Florasphere/lint.xml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
+*.gradle
+*/local.properties
+*/.idea/workspace.xml
+*/.idea/libraries
+*.DS_Store
+*/build
