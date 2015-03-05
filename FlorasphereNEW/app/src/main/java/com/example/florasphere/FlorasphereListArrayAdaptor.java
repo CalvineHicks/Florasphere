@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.view.*;
 import android.widget.*;
 import android.view.*;
+import android.util.Log;
 
 
 /**
@@ -39,6 +40,7 @@ public class FlorasphereListArrayAdaptor  extends ArrayAdapter<String>
           ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
           ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
 
+        Log.i("tag","returning row view"); //sample message to logcat (for debugging)
         return rowView;
     }
 }
