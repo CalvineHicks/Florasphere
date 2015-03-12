@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.*;
 import android.widget.*;
+import android.content.Intent;
 /**
  * Created by calvineh on 3/1/15.
  */
@@ -25,7 +26,17 @@ public class FlorasphereListActivity extends ListActivity{
 
        if (plantlist.length > 0){
             adapter = new FlorasphereListArrayAdaptor(this,plantlist);
-        Log.i("tag", "calling adapter row view");
+
+           //when a list Item is clicked go to new activity using intent
+            listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent i = new Intent(FlorasphereListActivity.this, PlantInfoActivity.class);
+                    //i.putExtra(); This would be used to add extra information outside of context to pass on to next class\
+                    startActivity(i);
+                }
+            });
+        Log.i("tag", "calling adapter row view"); //this is a comment that will be logged to LogCat
 
         listView.setAdapter(adapter);
         }
