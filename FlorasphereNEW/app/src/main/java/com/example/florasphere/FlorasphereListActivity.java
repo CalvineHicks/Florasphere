@@ -24,6 +24,17 @@ public class FlorasphereListActivity extends ListActivity{
 
         plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
 
+
+        ImageButton settings = (ImageButton) findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent k = new Intent(FlorasphereListActivity.this, SettingsActivity.class);
+                startActivity(k);
+                Log.i("tag", "Settings button pressed, SettingsActivity started");
+            }
+        });
+
+
         Button addPlant = (Button) findViewById(R.id.add_plant);
         addPlant.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
