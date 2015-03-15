@@ -18,13 +18,37 @@ public class FlorasphereListActivity extends ListActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        int plant_list_size = 1;
+        int plant_list_size = 10;
         String plantlist[] = new String[plant_list_size]; //size of plant list (determines plant objects displayed)
         ListView listView = getListView();
 
         plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
 
+<<<<<<< HEAD
         if (plantlist.length > 0){
+=======
+
+        ImageButton settings = (ImageButton) findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent k = new Intent(FlorasphereListActivity.this, SettingsActivity.class);
+                startActivity(k);
+                Log.i("tag", "Settings button pressed, SettingsActivity started");
+            }
+        });
+
+
+        Button addPlant = (Button) findViewById(R.id.add_plant);
+        addPlant.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent k = new Intent(FlorasphereListActivity.this, SearchSubmissionActivity.class);
+                startActivity(k);
+                Log.i("tag", "Add Plant button pressed, SearchSubmissionActivity started");
+            }
+        });
+
+       if (plantlist.length > 0){
+>>>>>>> 18d9e3a4cd5df0632b9ae7d5f512dd683e66d6ac
             adapter = new FlorasphereListArrayAdaptor(this,plantlist);
 
            //when a list Item is clicked go to new activity using intent
