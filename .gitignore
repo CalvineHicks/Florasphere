@@ -7,8 +7,8 @@ gen/
 proguard/
 local.properties
 *.log
-Florasphere/.classpath
-Florasphere/lint.xml
+FlorasphereNEW/.classpath
+FlorasphereNEW/lint.xml
 .gradle
 */local.properties
 */.idea/workspace.xml
@@ -16,3 +16,5 @@ Florasphere/lint.xml
 *.DS_Store
 build/
 .idea
+*.iml
+Florasphere/
