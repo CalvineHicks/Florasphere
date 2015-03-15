@@ -24,10 +24,14 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".NotificationService">
-
+            android:name=".NotificationService"
+            >
             </service>
-
+        <activity
+            android:name=".PlantInfoActivity"
+            android:screenOrientation="portrait"
+            >
+        </activity>
     </application>
 
 </manifest>
