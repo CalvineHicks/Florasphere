@@ -11,6 +11,7 @@
     <string name="search_results">Search Results</string>
     <string name="notification_page">Notification Page</string>
     <string name="florasphere">Florasphere</string>
-
+    <string name="add_plant">Add Plant</string>
+    <string name="search">Search</string>
     
 </resources>
