@@ -24,7 +24,7 @@ public class FlorasphereListActivity extends ListActivity{
 
         plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
 
-       if (plantlist.length > 0){
+        if (plantlist.length > 0){
             adapter = new FlorasphereListArrayAdaptor(this,plantlist);
 
            //when a list Item is clicked go to new activity using intent

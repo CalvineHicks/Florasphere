@@ -3,6 +3,7 @@ package com.example.florasphere;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 
 /**
  * Created by Noah on 3/9/2015.
@@ -11,7 +12,7 @@ public class NotificationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        //TODO do something useful
+        Log.i("tag", "started the serice");
         return Service.START_NOT_STICKY;
     }
 
