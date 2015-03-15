@@ -16,3 +16,4 @@ Florasphere/lint.xml
 *.DS_Store
 build/
 .idea
+*.iml
