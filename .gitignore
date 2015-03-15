@@ -18,3 +18,4 @@ build/
 .idea
 *.iml
 Florasphere/
+*.swp
