@@ -24,10 +24,6 @@ public class FlorasphereListActivity extends ListActivity{
 
         plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
 
-<<<<<<< HEAD
-        if (plantlist.length > 0){
-=======
-
         ImageButton settings = (ImageButton) findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
@@ -48,7 +44,6 @@ public class FlorasphereListActivity extends ListActivity{
         });
 
        if (plantlist.length > 0){
->>>>>>> 18d9e3a4cd5df0632b9ae7d5f512dd683e66d6ac
             adapter = new FlorasphereListArrayAdaptor(this,plantlist);
 
            //when a list Item is clicked go to new activity using intent
