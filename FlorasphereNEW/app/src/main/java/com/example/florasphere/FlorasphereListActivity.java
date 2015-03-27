@@ -19,11 +19,12 @@ public class FlorasphereListActivity extends ListActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         int plant_list_size = 10;
-        String plantlist[] = new String[plant_list_size]; //size of plant list (determines plant objects displayed)
+        final Plant plantlist[] = new Plant[plant_list_size]; //size of plant list (determines plant objects displayed)
         ListView listView = getListView();
-
-        plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
-
+        for (int i = 0; i< plant_list_size; i++) {
+            plantlist[i] = new Plant(); //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
+            plantlist[i].setPlantName("test"+i);
+        }
         ImageButton settings = (ImageButton) findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
@@ -50,8 +51,9 @@ public class FlorasphereListActivity extends ListActivity{
             listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Log.i("tag", ""+id);
                     Intent i = new Intent(FlorasphereListActivity.this, PlantInfoActivity.class);
-                    //i.putExtra(); This would be used to add extra information outside of context to pass on to next class\
+                    i.putExtra("plant",plantlist[(int)id]); //This would be used to add extra information outside of context to pass on to next class\
                     startActivity(i);
                 }
             });
