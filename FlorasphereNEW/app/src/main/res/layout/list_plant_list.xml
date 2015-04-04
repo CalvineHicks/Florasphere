@@ -33,7 +33,7 @@
     android:id="@+id/plant_status"
     android:layout_width="65dp"
     android:layout_height="65dp"
-    android:src="@drawable/water_drop"
+    android:src="@drawable/water_drop_3outof3"
     android:scaleType="fitCenter"
     android:adjustViewBounds="true"
     />
