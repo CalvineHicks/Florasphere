@@ -2,6 +2,8 @@ package com.example.florasphere;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+
 /**
  * This class is to be used by the admin methods and search methods.
  */
@@ -38,7 +40,7 @@ public class PlantStorage
         //Note: change url to filename if needed: "\res\drawable-hdpi\AfricanViolet.jpg"
         //Reference: http://www.houseplant411.com/houseplant/african-violet-plant
         String url2  = "http://www.houseplant411.com/wp-content/uploads/2007-04-20Saintpaulia_ionantha04-256x190.jpg";
-        this.insertPlant( "African Violet", url2 , 8, Plant.WaterAmt.MEDIUM, Plant.LightAmt.FULL,
+        this.insertPlant( "African Violet", url2 , 6, Plant.WaterAmt.LIGHT, Plant.LightAmt.FULL,
                           "Allow the top 1-2 inches of soil in an African Violet plant to dry out "   +
                           "before watering. Avoid using water on an African Violet plant that has "   +
                           "passed through a softener or water containing chemicals. Always water "    +
@@ -88,11 +90,9 @@ public class PlantStorage
                                    plant.getWaterAmt(), plant.getLightAmt(), plant.getGenInfo() );
     }
 
-    /*Returns plant by name.*/
-    public Plant getPlant( String plantName )
-    {
-        return plantDatabase.getPlant( plantName );
-    }
+    // -------------------------- //
+    //       SEARCH METHODS       //
+    // -------------------------- //
 
     /*Returns all plants in database.*/
     public Plant[] getAllPlants()
@@ -103,8 +103,64 @@ public class PlantStorage
         {
             plants[i] = this.getPlant( plantNames[i] );
         }
-
         return plants;
     }
+
+    /*Returns plant BY NAME.*/
+    public Plant getPlant( String plantName )
+    {
+        return plantDatabase.getPlant( plantName );
+    }
+
+
+    /*Returns plant(s) BY WATERING FREQUENCY.*/
+    public ArrayList<Plant> getPlant( int waterFreq )
+    {
+        ArrayList<Plant> result = new ArrayList<>();
+        Plant[] plants          = this.getAllPlants();
+        for( int i = 0; i < plants.length; i++ )
+        {
+            if( plants[i].getWaterFreq() == waterFreq )
+            {
+                result.add( plants[i] );
+            }
+        }
+        return result;
+    }
+
+    /*Returns plant(s) BY WATER AMOUNT.*/
+    public ArrayList<Plant> getPlant( Plant.WaterAmt wAmt )
+    {
+        ArrayList<Plant> result = new ArrayList<>();
+        Plant[] plants          = this.getAllPlants();
+        for( int i = 0; i < plants.length; i++ )
+        {
+            if( plants[i].getWaterAmt() == wAmt )
+            {
+                result.add( plants[i] );
+            }
+        }
+        return result;
+    }
+
+    /*Returns plant(s) BY LIGHT AMOUNT.*/
+    public ArrayList<Plant> getPlant( Plant.LightAmt lAmt )
+    {
+        ArrayList<Plant> result = new ArrayList<>();
+        Plant[] plants          = this.getAllPlants();
+        for( int i = 0; i < plants.length; i++ )
+        {
+            if( plants[i].getLightAmt() == lAmt )
+            {
+                result.add( plants[i] );
+            }
+        }
+        return result;
+    }
+
+
+
+
+
 
 }
