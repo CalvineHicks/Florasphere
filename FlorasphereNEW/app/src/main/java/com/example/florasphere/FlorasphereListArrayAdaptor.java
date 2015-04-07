@@ -13,12 +13,18 @@ import android.util.Log;
 /**
  * Created by calvineh on 3/1/15.
  */
+<<<<<<< HEAD
 public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
+=======
+public class FlorasphereListArrayAdaptor  extends ArrayAdapter<Plant>
+>>>>>>> c968641459d351d7f1b474598df30f26e527192f
 {
     private final Context context;
     private final Plant[] values;
     private String username;
     private int wateringStatus;
+    String waterOneThird = "";
+
 
     //private DatabaseHelper dh;
 
@@ -33,13 +39,23 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         public View getView(int position, View convertView, ViewGroup parent)
     {
           LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+          Plant currentPlant = values[position];
           View rowView = inflater.inflate(R.layout.list_plant_list, parent, false);
           TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
           ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
           ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
-
-        Log.i("tag","returning row view"); //sample message to logcat (for debugging)
+        textView.setText(currentPlant.getPlantName());
+        if(currentPlant.getWaterAmt() == Plant.WaterAmt.LIGHT) {
+            imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_1outof3));
+        }
+        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.MEDIUM) {
+            imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_2outof3));
+        }
+        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.SOAK) {
+            imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_3outof3));
+        }
+        imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.succulent));
+        Log.i("tag",currentPlant.getPlantName()); //sample message to logcat (for debugging)
         return rowView;
     }
 }

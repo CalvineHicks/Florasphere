@@ -53,8 +53,9 @@ public class FlorasphereListActivity extends ListActivity{
             listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Log.i("tag", ""+id);
                     Intent i = new Intent(FlorasphereListActivity.this, PlantInfoActivity.class);
-                    //i.putExtra(); This would be used to add extra information outside of context to pass on to next class\
+                    i.putExtra("plant",plantlist[(int)id]); //This would be used to add extra information outside of context to pass on to next class\
                     startActivity(i);
                 }
             });
