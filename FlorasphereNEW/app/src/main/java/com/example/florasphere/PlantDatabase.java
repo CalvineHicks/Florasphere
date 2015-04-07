@@ -78,20 +78,17 @@ public class PlantDatabase extends SQLiteOpenHelper
     {
         String[] columns = {"PLANT_PIC", "WATER_FREQ", "WATER_AMT", "LIGHT_AMT", "GEN_INFO"};
         Cursor c = getReadableDatabase().query( TABLE_NAME, columns, "PLANT_NAME = " + plantName, null, null, null, null );
-        Plant p = new Plant();
-        p.setPlantName( plantName );
-        try
+        Plant p = null;
+        if( c != null )
         {
-            p.setPlantPic( new URL( c.getString(0) ) );
+            p = new Plant();
+            p.setPlantName( plantName );
+            p.setPlantPic( c.getString(0) );
+            p.setWaterFreq( c.getInt(1) );
+            p.setWaterAmt( Plant.WaterAmt.valueOf( c.getString(2) ) );
+            p.setLightAmt( Plant.LightAmt.valueOf( c.getString(3) ) );
+            p.setGenInfo( c.getString(4) );
         }
-        catch (MalformedURLException e)
-        {
-            e.printStackTrace();
-        }
-        p.setWaterFreq( c.getInt(1) );
-        p.setWaterAmt( Plant.WaterAmt.valueOf( c.getString(2) ) );
-        p.setLightAmt( Plant.LightAmt.valueOf( c.getString(3) ) );
-        p.setGenInfo( c.getString(4) );
         return p;
     }
 
