@@ -13,17 +13,16 @@ import android.util.Log;
 /**
  * Created by calvineh on 3/1/15.
  */
-public class FlorasphereListArrayAdaptor  extends ArrayAdapter<String>
+public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
 {
     private final Context context;
-    private final String[] values;
+    private final Plant[] values;
     private String username;
-    private String snackname;
     private int wateringStatus;
 
     //private DatabaseHelper dh;
 
-    public FlorasphereListArrayAdaptor(Context context, String[] values	)
+    public FlorasphereListArrayAdaptor(Context context, Plant[] values	)
     {
         super(context, R.layout.list_plant_list, values);
         this.context = context;

@@ -19,11 +19,13 @@ public class FlorasphereListActivity extends ListActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         int plant_list_size = 10;
-        String plantlist[] = new String[plant_list_size]; //size of plant list (determines plant objects displayed)
+        final Plant plantlist[] = new Plant[plant_list_size]; //size of plant list (determines plant objects displayed)
         ListView listView = getListView();
-
-        plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
-
+        for (int i = 0; i< plant_list_size; i++) {
+            plantlist[i] = new Plant(); //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
+            plantlist[i].setPlantName("test"+i);
+        }
+        //plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
 
         ImageButton settings = (ImageButton) findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener(){
