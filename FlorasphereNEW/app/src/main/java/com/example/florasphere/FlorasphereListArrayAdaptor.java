@@ -36,7 +36,7 @@ public class FlorasphereListArrayAdaptor  extends ArrayAdapter<Plant>
         //dh = new DatabaseHelper(context);
     }
 
-        public View getView(int position, View convertView, ViewGroup parent)
+    public View getView(int position, View convertView, ViewGroup parent)
     {
           LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
           Plant currentPlant = values[position];
