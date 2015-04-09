@@ -18,7 +18,6 @@ public class FlorasphereListArrayAdaptor  extends ArrayAdapter<Plant>
     private final Context context;
     private final Plant[] values;
     private String username;
-    private String snackname;
     private int wateringStatus;
 
     //private DatabaseHelper dh;
@@ -31,7 +30,7 @@ public class FlorasphereListArrayAdaptor  extends ArrayAdapter<Plant>
         //dh = new DatabaseHelper(context);
     }
 
-        public View getView(int position, View convertView, ViewGroup parent)
+    public View getView(int position, View convertView, ViewGroup parent)
     {
           LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
