@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Florasphere</string>
+    <string name="action_settings">Florasphere</string>
     <string name="hello_world">Hello world!</string>
     <string name="settings">Settings</string>
     <string name="main">Main Activity-Plant List</string>

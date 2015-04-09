@@ -1,10 +1,11 @@
 package com.example.florasphere;
 
+import java.io.Serializable;
 
 /**
  * Used to create a Plant object and access individual attributes of plant objects.
  */
-public class Plant
+public class Plant implements Serializable
 {
     private String _plantName;
     private String _plantPic;
