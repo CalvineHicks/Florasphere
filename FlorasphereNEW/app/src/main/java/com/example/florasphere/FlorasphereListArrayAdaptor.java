@@ -13,7 +13,11 @@ import android.util.Log;
 /**
  * Created by calvineh on 3/1/15.
  */
+<<<<<<< HEAD
+public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
+=======
 public class FlorasphereListArrayAdaptor  extends ArrayAdapter<Plant>
+>>>>>>> c968641459d351d7f1b474598df30f26e527192f
 {
     private final Context context;
     private final Plant[] values;

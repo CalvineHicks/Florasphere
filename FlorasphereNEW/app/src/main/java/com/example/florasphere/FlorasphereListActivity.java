@@ -25,6 +25,8 @@ public class FlorasphereListActivity extends ListActivity{
             plantlist[i] = new Plant(); //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
             plantlist[i].setPlantName("test"+i);
         }
+        //plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
+
         ImageButton settings = (ImageButton) findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
