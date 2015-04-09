@@ -1,6 +1,5 @@
 package com.example.florasphere;
 
-
 /**
  * Used to create a Plant object and access individual attributes of plant objects.
  */

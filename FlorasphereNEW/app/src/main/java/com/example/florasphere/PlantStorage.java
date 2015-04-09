@@ -1,7 +1,6 @@
 package com.example.florasphere;
 
 import android.content.Context;
-
 import java.util.ArrayList;
 
 /**
