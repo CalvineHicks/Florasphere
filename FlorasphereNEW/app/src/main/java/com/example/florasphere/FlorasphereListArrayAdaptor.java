@@ -13,7 +13,8 @@ import android.util.Log;
 /**
  * Created by calvineh on 3/1/15.
  */
-public class FlorasphereListArrayAdaptor  extends ArrayAdapter<Plant>
+
+public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
 {
     private final Context context;
     private final Plant[] values;
@@ -32,7 +33,7 @@ public class FlorasphereListArrayAdaptor  extends ArrayAdapter<Plant>
         //dh = new DatabaseHelper(context);
     }
 
-        public View getView(int position, View convertView, ViewGroup parent)
+    public View getView(int position, View convertView, ViewGroup parent)
     {
           LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
           Plant currentPlant = values[position];

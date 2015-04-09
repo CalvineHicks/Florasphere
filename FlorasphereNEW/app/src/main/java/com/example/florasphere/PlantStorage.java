@@ -114,7 +114,7 @@ public class PlantStorage
     /*Returns plant(s) BY WATERING FREQUENCY.*/
     public ArrayList<Plant> getPlant( int waterFreq )
     {
-        ArrayList<Plant> result = new ArrayList<>();
+        ArrayList<Plant> result = new ArrayList<Plant>();
         Plant[] plants          = this.getAllPlants();
         for( int i = 0; i < plants.length; i++ )
         {
@@ -129,7 +129,7 @@ public class PlantStorage
     /*Returns plant(s) BY WATER AMOUNT.*/
     public ArrayList<Plant> getPlant( Plant.WaterAmt wAmt )
     {
-        ArrayList<Plant> result = new ArrayList<>();
+        ArrayList<Plant> result = new ArrayList<Plant>();
         Plant[] plants          = this.getAllPlants();
         for( int i = 0; i < plants.length; i++ )
         {
@@ -144,7 +144,7 @@ public class PlantStorage
     /*Returns plant(s) BY LIGHT AMOUNT.*/
     public ArrayList<Plant> getPlant( Plant.LightAmt lAmt )
     {
-        ArrayList<Plant> result = new ArrayList<>();
+        ArrayList<Plant> result = new ArrayList<Plant>();
         Plant[] plants          = this.getAllPlants();
         for( int i = 0; i < plants.length; i++ )
         {
