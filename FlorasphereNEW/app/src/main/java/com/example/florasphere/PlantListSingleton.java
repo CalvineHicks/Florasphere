@@ -23,7 +23,7 @@ public class PlantListSingleton {
 
 
     public void insert(Plant plant){
-        instance.plantlist[plant_list_size] = plant;
+        //instance.plantlist[plant_list_size] = plant;
         plant_list_size++;
     }
 }
