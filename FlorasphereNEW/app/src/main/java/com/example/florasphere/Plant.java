@@ -1,7 +1,6 @@
 package com.example.florasphere;
 
 import java.io.Serializable;
-
 /**
  * Used to create a Plant object and access individual attributes of plant objects.
  */

@@ -23,7 +23,7 @@ public class NotificationService extends BroadcastReceiver {
     public static final int NOTIFICATION_ID = 1;
 
     public void onReceive(Context context, Intent intent) {
-        Log.i("tag", "oh my");
+        //Log.i("tag", "oh my");
         Random random = new Random();
 
         if(random.nextBoolean()){
