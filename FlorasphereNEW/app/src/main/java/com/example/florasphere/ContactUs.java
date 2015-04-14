@@ -14,7 +14,7 @@ public class ContactUs extends ActionBarActivity {
         setContentView(R.layout.activity_contact_us);
     }
 
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -36,4 +36,6 @@ public class ContactUs extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+*/
+
 }
