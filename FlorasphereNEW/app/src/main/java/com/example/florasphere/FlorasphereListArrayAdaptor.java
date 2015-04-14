@@ -52,8 +52,9 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         else if(currentPlant.getWaterAmt() == Plant.WaterAmt.SOAK) {
             imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_3outof3));
         }
-//        String attempt = currentPlant.getPlantPic();
+
         imageView.setImageDrawable(context.getResources().getDrawable(currentPlant.getPlantPic()));
+
         Log.i("tag",currentPlant.getPlantName()); //sample message to logcat (for debugging)
         return rowView;
     }

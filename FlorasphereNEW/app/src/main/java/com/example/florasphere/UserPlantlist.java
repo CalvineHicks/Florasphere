@@ -56,9 +56,9 @@ public class UserPlantlist
         return userPlantList.get( index );
     }
 
-    public Plant[] toArray( )
+    public Plant[] toArray()
     {
-        Plant[] plantArray = new Plant[userPlantList.size()];
+        Plant[] plantArray = new Plant[ getSize() ];
         return userPlantList.toArray( plantArray );
     }
 
