@@ -22,22 +22,22 @@ public class FlorasphereListActivity extends ListActivity{
         setContentView(R.layout.activity_main);
 
         Log.i("tag", "oh my1");
-        UserPlantlist plantlist = UserPlantlist.getInstance(); //Determines plant objects displayed on user's main page.
+        UserPlantlist plantlist = UserPlantlist.getInstance(this); //Determines plant objects displayed on user's main page.
         int plant_list_size     = plantlist.getSize();
         final Plant[] plantArray;
-
-        PlantStorage ps = new PlantStorage( this.getApplicationContext() ); //context to use to open or create the database name of the database file, or null for an in-memory database
-        ps.initPlant();
-        Log.i("tag", "FlorasphereListActifity.onCreate(): passed ps.initPlant().");
-        // ###### FAILING HERE ###### //
-        Plant[] dbList = ps.getAllPlants();
-        Log.i("tag", "FlorasphereListActifity.onCreate(): passed ps.getAllPlants().");
-
-        //Temporary
-        for ( Plant p : dbList )
-        {
-            plantlist.addPlant( p );
-        }
+//
+//        PlantStorage ps = new PlantStorage( this.getApplicationContext() ); //context to use to open or create the database name of the database file, or null for an in-memory database
+//        ps.initPlant();
+//        Log.i("tag", "FlorasphereListActifity.onCreate(): passed ps.initPlant().");
+//        // ###### FAILING HERE ###### //
+//        Plant[] dbList = ps.getAllPlants();
+//        Log.i("tag", "FlorasphereListActifity.onCreate(): passed ps.getAllPlants().");
+//
+//        //Temporary
+//        for ( Plant p : dbList )
+//        {
+//            plantlist.addPlant( p );
+//        }
 
         ListView listView = getListView();
         Log.i("tag", "FlorasphereListActifity.onCreate(): passed getListView().");
@@ -66,7 +66,7 @@ public class FlorasphereListActivity extends ListActivity{
         Log.i("tag", "oh my5");
         if ( plant_list_size > 0){
             Log.i("tag", "oh my6");
-            plantArray = plantlist.toArray( plant_list_size );
+            plantArray = plantlist.toArray( );
             adapter = new FlorasphereListArrayAdaptor(this, plantArray);
 
             //when a list Item is clicked go to new activity using intent

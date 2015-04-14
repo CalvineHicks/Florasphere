@@ -1,5 +1,7 @@
 package com.example.florasphere;
 
+import android.graphics.drawable.Drawable;
+
 import java.io.Serializable;
 /**
  * Used to create a Plant object and access individual attributes of plant objects.
@@ -7,7 +9,7 @@ import java.io.Serializable;
 public class Plant implements Serializable
 {
     private String _plantName;
-    private String _plantPic;
+    private int _plantPic;
     private int _waterFreq;
     public enum WaterAmt { LIGHT, MEDIUM, SOAK };
     public enum LightAmt { LOW, PARTIAL, FULL };
@@ -18,14 +20,14 @@ public class Plant implements Serializable
     public Plant()
     {
         _plantName = "My Plant";
-        _plantPic  = "";
+        _plantPic  = 0;
         _waterFreq = 7;
         _waterAmt  = WaterAmt.MEDIUM;
         _lightAmt  = LightAmt.PARTIAL;
         _genInfo   = "";
     }
 
-    public Plant( String name, String image, int wFreq, WaterAmt wAmt, LightAmt lAmt, String info  )
+    public Plant( String name, int image, int wFreq, WaterAmt wAmt, LightAmt lAmt, String info  )
     {
         _plantName = name;
         _plantPic  = image;
@@ -40,7 +42,7 @@ public class Plant implements Serializable
         return _plantName;
     }
 
-    public String getPlantPic()
+    public int getPlantPic()
     {
         return _plantPic;
     }
@@ -70,9 +72,9 @@ public class Plant implements Serializable
         _plantName = name;
     }
 
-    public void setPlantPic( String url )
+    public void setPlantPic( int pic )
     {
-        _plantPic = url;
+        _plantPic = pic;
     }
 
     public void setWaterFreq( int freq )

@@ -92,7 +92,7 @@ public class PlantStorage
     /*Used in plant search to find & select specific plants in the main database to add to user's plant list.*/
     public void insertPlant( Plant plant )
     {
-        plantDatabase.insertPlant( plant.getPlantName(), plant.getPlantPic(), plant.getWaterFreq(),
+        plantDatabase.insertPlant( plant.getPlantName(), null/*plant.getPlantPic()*/, plant.getWaterFreq(),
                                    plant.getWaterAmt(), plant.getLightAmt(), plant.getGenInfo() );
     }
 
