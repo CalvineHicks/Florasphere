@@ -138,10 +138,11 @@ public class PlantDatabase extends SQLiteOpenHelper
 
                 if (c != null)
                 {
-                    c.moveToFirst();
+                    c.moveToNext();
                     p = new Plant();
                     p.setPlantName(plantName);
                     p.setPlantPic(c.getString(0));
+
                     p.setWaterFreq(c.getInt(1));
                     p.setWaterAmt(Plant.WaterAmt.valueOf(c.getString(2)));
                     p.setLightAmt(Plant.LightAmt.valueOf(c.getString(3)));
