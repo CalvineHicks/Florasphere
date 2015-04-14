@@ -3,16 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-<TextView
-    android:id="@+id/title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/search_submission"
-    android:layout_marginTop="10dp"
-    android:textSize="20dp" 
-    android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_submission"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"/>
 
 <EditText
     android:id="@+id/search_text"
@@ -22,6 +21,17 @@
     android:layout_marginLeft="75dp"
     android:layout_below="@id/title"
     android:hint="search for plant">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/search_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="75dp"
+        android:layout_below="@id/title"
+        android:hint="search for plant">
 
     </EditText>
 
@@ -35,5 +45,5 @@
         android:layout_marginLeft="30dp"
         android:layout_toRightOf="@id/search_text"
         />
-    
+
 </RelativeLayout>

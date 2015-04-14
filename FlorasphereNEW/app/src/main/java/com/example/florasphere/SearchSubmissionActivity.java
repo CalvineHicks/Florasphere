@@ -26,7 +26,7 @@ public class SearchSubmissionActivity extends Activity{
             public void onClick(View v) {
                 Intent k = new Intent(SearchSubmissionActivity.this, SearchResultsActivity.class);
                 if(validateInput(plantSearch.getText().toString())){
-                    Toast.makeText(context, "You set "+plantSearch.getText().toString()+" as your preferred name.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "You set "+plantSearch.getText().toString()+" as the search parameter", Toast.LENGTH_LONG).show();
                 }
                 startActivity(k);
                 Log.i("tag", "Search button pressed, SearchResultsActivity started");
