@@ -16,8 +16,11 @@ public class PlantInfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent i = getIntent();
         Plant p = (Plant) i.getSerializableExtra("plant");
-        Log.i("tag", p.getPlantName());
         setContentView(R.layout.plantinfo);
+        TextView plantname = (TextView) findViewById(R.id.plant_name);
+        Log.i("tag", p.getPlantName());
+        plantname.setText(p.getPlantName());
+
 
     }
 

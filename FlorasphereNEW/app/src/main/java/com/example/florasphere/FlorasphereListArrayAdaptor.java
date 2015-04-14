@@ -1,6 +1,7 @@
 package com.example.florasphere;
 
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.util.Log;
 /**
  * Created by calvineh on 3/1/15.
  */
+
 public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
 {
     private final Context context;
@@ -32,7 +34,7 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         //dh = new DatabaseHelper(context);
     }
 
-        public View getView(int position, View convertView, ViewGroup parent)
+    public View getView(int position, View convertView, ViewGroup parent)
     {
           LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
           Plant currentPlant = values[position];
@@ -50,7 +52,8 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         else if(currentPlant.getWaterAmt() == Plant.WaterAmt.SOAK) {
             imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_3outof3));
         }
-        imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.succulent));
+        String attempt = currentPlant.getPlantPic();
+        imageView.setImageDrawable(Drawable.createFromPath(currentPlant.getPlantPic()));
         Log.i("tag",currentPlant.getPlantName()); //sample message to logcat (for debugging)
         return rowView;
     }

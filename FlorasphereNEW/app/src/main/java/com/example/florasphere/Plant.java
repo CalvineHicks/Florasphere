@@ -1,15 +1,13 @@
 package com.example.florasphere;
 
 import java.io.Serializable;
-import java.net.URL;
-
 /**
  * Used to create a Plant object and access individual attributes of plant objects.
  */
 public class Plant implements Serializable
 {
     private String _plantName;
-    private URL _plantPic;
+    private String _plantPic;
     private int _waterFreq;
     public enum WaterAmt { LIGHT, MEDIUM, SOAK };
     public enum LightAmt { LOW, PARTIAL, FULL };
@@ -17,12 +15,32 @@ public class Plant implements Serializable
     private LightAmt _lightAmt;
     private String _genInfo;
 
+    public Plant()
+    {
+        _plantName = "My Plant";
+        _plantPic  = "";
+        _waterFreq = 7;
+        _waterAmt  = WaterAmt.MEDIUM;
+        _lightAmt  = LightAmt.PARTIAL;
+        _genInfo   = "";
+    }
+
+    public Plant( String name, String image, int wFreq, WaterAmt wAmt, LightAmt lAmt, String info  )
+    {
+        _plantName = name;
+        _plantPic  = image;
+        _waterFreq = wFreq;
+        _waterAmt  = wAmt;
+        _lightAmt  = lAmt;
+        _genInfo   = info;
+    }
+
     public String getPlantName()
     {
         return _plantName;
     }
 
-    public URL getPlantPic()
+    public String getPlantPic()
     {
         return _plantPic;
     }
@@ -52,7 +70,7 @@ public class Plant implements Serializable
         _plantName = name;
     }
 
-    public void setPlantPic( URL url )
+    public void setPlantPic( String url )
     {
         _plantPic = url;
     }
@@ -76,5 +94,4 @@ public class Plant implements Serializable
     {
         _genInfo = info;
     }
-
 }

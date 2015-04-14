@@ -7,8 +7,11 @@ import android.view.Menu;
 import android.view.*;
 import android.widget.*;
 import android.content.Intent;
+
+import android.content.Context;
+
 /**
- * Created by calvineh on 3/1/15.
+ * Created by calvineh on 3/1/15.  Modified by Jessica Lynch and Noah Dillon.
  */
 public class FlorasphereListActivity extends ListActivity{
 
@@ -18,13 +21,19 @@ public class FlorasphereListActivity extends ListActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        int plant_list_size = 10;
-        final Plant plantlist[] = new Plant[plant_list_size]; //size of plant list (determines plant objects displayed)
+        Log.i("tag", "oh my1");
+        PlantStorage ps = new PlantStorage( this.getApplicationContext() ); //context to use to open or create the database name of the database file, or null for an in-memory database
+        ps.initPlant();
+        Log.i("tag", "FlorasphereListActifity.onCreate(): passed ps.initPlant().");
+        final Plant[] plantlist = ps.getAllPlants(); //new Plant[plant_list_size]; //size of plant list (determines plant objects displayed)
+        Log.i("tag", "FlorasphereListActifity.onCreate(): passed ps.getAllPlants().");
+        int plant_list_size = plantlist.length;
         ListView listView = getListView();
-        for (int i = 0; i< plant_list_size; i++) {
-            plantlist[i] = new Plant(); //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
-            plantlist[i].setPlantName("test"+i);
-        }
+        Log.i("tag", "FlorasphereListActifity.onCreate(): passed getListView().");
+//        for (int i = 0; i< plant_list_size; i++) {
+//            plantlist[i] = new Plant(); //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
+//            plantlist[i].setPlantName("test"+i);
+//        }
         //plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
 
         ImageButton settings = (ImageButton) findViewById(R.id.settings);
@@ -45,8 +54,9 @@ public class FlorasphereListActivity extends ListActivity{
                 Log.i("tag", "Add Plant button pressed, SearchSubmissionActivity started");
             }
         });
-
+        Log.i("tag", "oh my5");
        if (plantlist.length > 0){
+           Log.i("tag", "oh my6");
             adapter = new FlorasphereListArrayAdaptor(this,plantlist);
 
            //when a list Item is clicked go to new activity using intent
