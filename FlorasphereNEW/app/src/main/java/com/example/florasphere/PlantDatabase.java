@@ -69,6 +69,7 @@ public class PlantDatabase extends SQLiteOpenHelper
 
     public void insertPlant( String plantName, String plantPic, int waterFreq, Plant.WaterAmt wAmt, Plant.LightAmt lAmt, String genInfo )
     {
+        //Plant p = null;
         Plant p = getPlant( plantName );
 
         ContentValues cv = new ContentValues();
@@ -127,7 +128,7 @@ public class PlantDatabase extends SQLiteOpenHelper
     public Plant getPlant( String plantName )
     {
         String[] columns = {"PLANT_PIC", "WATER_FREQ", "WATER_AMT", "LIGHT_AMT", "GEN_INFO"};
-        Plant p = null;
+        Plant p          = null;
         try
         {
             SQLiteDatabase db = getReadableDatabase();
@@ -138,14 +139,17 @@ public class PlantDatabase extends SQLiteOpenHelper
 
                 if (c != null)
                 {
-                    c.moveToFirst();
-                    p = new Plant();
-                    p.setPlantName(plantName);
-                    p.setPlantPic(c.getString(0));
-                    p.setWaterFreq(c.getInt(1));
-                    p.setWaterAmt(Plant.WaterAmt.valueOf(c.getString(2)));
-                    p.setLightAmt(Plant.LightAmt.valueOf(c.getString(3)));
-                    p.setGenInfo(c.getString(4));
+                    for( int i = 0; i < c.getCount(); i++ )
+                    {
+                        //c.moveToFirst();
+                        p = new Plant();
+                        p.setPlantName(plantName);
+                        p.setPlantPic(c.getString(0));
+                        p.setWaterFreq(c.getInt(1));
+                        p.setWaterAmt(Plant.WaterAmt.valueOf(c.getString(2)));
+                        p.setLightAmt(Plant.LightAmt.valueOf(c.getString(3)));
+                        p.setGenInfo(c.getString(4));
+                    }
                 }
             }
             catch( SQLiteException se )
