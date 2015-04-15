@@ -55,7 +55,6 @@
         android:layout_marginLeft="75dp"
         android:layout_below="@id/search_text_by_watering"
         android:hint="search for plant">
-
     </EditText>
 
     <Button
@@ -68,5 +67,4 @@
         android:layout_marginLeft="30dp"
         android:layout_centerHorizontal="true"
         />
-
 </RelativeLayout>
