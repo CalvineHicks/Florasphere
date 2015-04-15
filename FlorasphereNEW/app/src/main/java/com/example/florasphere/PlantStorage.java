@@ -25,10 +25,10 @@ public class PlantStorage
     public void initPlant()
     {
         Log.i("tag", "inserting succulent plant into main database");
-        //Note: change url to filename if needed: "\res\drawable-hdpi\succulent_family.jpg"
+        //int imageFile = R.drawable.plant_image;
+        //Note: change to filename if needed: "\res\drawable-hdpi\succulent_family.jpg"
         //References: http://houseplants.about.com/od/growinghealthyhouseplants/a/SucculentsBasic.htm and http://www.csssj.org/welcome_visitors/basic_culture.html
-        String imageFile1  = "\\res\\drawable-hdpi\\succulent_family.jpg"; // "https://img1.etsystatic.com/020/0/6834826/il_570xN.474249511_c3c5.jpg";
-
+        int imageFile1 = R.drawable.succulent_family;
         this.insertPlant( "Succulent", imageFile1 , 7, Plant.WaterAmt.SOAK, Plant.LightAmt.FULL,
                           "Keep your succulent in soil and in a pot that allows good drainage. "      +
                           "Growing season is from Spring into Fall. Resting time is from late "       +
@@ -40,9 +40,9 @@ public class PlantStorage
                           "from 70-85 degrees and nighttime temp from 50-55 degrees.  Place outside " +
                           "in the summer day and night if temperature and climate ideal!" );
         Log.i("tag", "inserting African Violet plant into main database");
-        //Note: change url to filename if needed: "\\res\\drawable-hdpi\\african_violet.jpg"
+        //Note: change to filename if needed: "\\res\\drawable-hdpi\\african_violet.jpg"
         //Reference: http://www.houseplant411.com/houseplant/african-violet-plant
-        String imageFile2  = "\\res\\drawable-hdpi\\african_violet.jpg"; //"http://www.houseplant411.com/wp-content/uploads/2007-04-20Saintpaulia_ionantha04-256x190.jpg";
+        int imageFile2  = R.drawable.african_violet;
         this.insertPlant( "African Violet", imageFile2 , 6, Plant.WaterAmt.LIGHT, Plant.LightAmt.FULL,
                           "Allow the top 1-2 inches of soil in an African Violet plant to dry out "   +
                           "before watering. Avoid using water on an African Violet plant that has "   +
@@ -55,9 +55,9 @@ public class PlantStorage
                           "to encourage greater flower production." );
 
         Log.i("tag", "inserting Boston Fern plant into main database");
-        //Note: change url to filename if needed: "\\res\\drawable-hdpi\\boston_fern.jpg"
+        //Note: change to filename if needed: "\\res\\drawable-hdpi\\boston_fern.jpg"
         //References: http://www.doityourself.com/stry/bostonferns#b and http://www.wikihow.com/Care-for-Boston-Ferns
-        String imageFile3  = "\\res\\drawable-hdpi\\boston_fern.jpg"; //"http://www.guide-to-houseplants.com/image-files/boston-fern-plant.jpg";
+        int imageFile3  = R.drawable.boston_fern;
         this.insertPlant( "Boston Fern", imageFile3, 5, Plant.WaterAmt.MEDIUM, Plant.LightAmt.FULL,
                           "Thrive in humid conditions with bright indirect sunlight, i.e. close to "  +
                           "east or west facing window. Prefer daytime temp. from 65-75 degrees and "  +
@@ -70,9 +70,9 @@ public class PlantStorage
                           "clean and have drainage holes in the bottom. " );
 
         Log.i("tag", "inserting English Ivy plant into main database");
-        //Note: change url to filename if needed: "\\res\\drawable-hdpi\\english_ivy.jpg"
+        //Note: change to filename if needed: "\\res\\drawable-hdpi\\english_ivy.jpg"
         //References: http://www.guide-to-houseplants.com/english-ivy.html and http://www.ivy.org/about_bv8.htm
-        String imageFile4  = "\\res\\drawable-hdpi\\english_ivy.jpg";//"http://www.sparkpeople.com/news/genericpictures/english_ivy_plant.jpg";
+        int imageFile4  = R.drawable.english_ivy;
         this.insertPlant( "English Ivy", imageFile4, 6, Plant.WaterAmt.MEDIUM, Plant.LightAmt.FULL,
                           "Thrive in humid conditions with bright indirect sunlight, i.e. close to "  +
                           "east or west facing window. Prefer temp. from 50-70 degrees. If dry "      +
@@ -84,7 +84,7 @@ public class PlantStorage
     }
 
     /*Only admin has access to this method to add plants to the main database.*/
-    public void insertPlant( String plantName, String plantPic, int waterFreq, Plant.WaterAmt wAmt, Plant.LightAmt lAmt, String genInfo )
+    public void insertPlant( String plantName, int plantPic, int waterFreq, Plant.WaterAmt wAmt, Plant.LightAmt lAmt, String genInfo )
     {
         plantDatabase.insertPlant( plantName, plantPic, waterFreq, wAmt, lAmt, genInfo );
     }
@@ -107,6 +107,7 @@ public class PlantStorage
         Plant[] plants      = new Plant[plantNames.length];
         for( int i = 0; i < plantNames.length; i++ )
         {
+            Log.i( "tag", "getAllPlants(): " + i + ") " + plantNames[i] );
             plants[i] = this.getPlant( plantNames[i] );
         }
         return plants;
