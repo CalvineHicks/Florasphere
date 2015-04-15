@@ -1,9 +1,6 @@
 package com.example.florasphere;
 
-import android.content.Context;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Created by Jessica on 4/14/2015.
@@ -12,6 +9,13 @@ public class UserPlantlist
 {
     private ArrayList<Plant> userPlantList;
     private static UserPlantlist instance;
+
+//    String FILENAME = "user_plant_list.txt";
+//    String string = "hello world!";
+//
+//    FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+//    fos.write(string.getBytes());
+//    fos.close();
 
     private UserPlantlist()
     {
@@ -43,9 +47,9 @@ public class UserPlantlist
         return userPlantList.get( index );
     }
 
-    public Plant[] toArray( int listSize )
+    public Plant[] toArray()
     {
-        Plant[] plantArray = new Plant[listSize];
+        Plant[] plantArray = new Plant[getSize()];
         return userPlantList.toArray( plantArray );
     }
 

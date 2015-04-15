@@ -43,17 +43,21 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
           ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
           ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
         textView.setText(currentPlant.getPlantName());
-        if(currentPlant.getWaterAmt() == Plant.WaterAmt.LIGHT) {
+        if(currentPlant.getWaterAmt() == Plant.WaterAmt.LIGHT)
+        {
             imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_1outof3));
         }
-        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.MEDIUM) {
+        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.MEDIUM)
+        {
             imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_2outof3));
         }
-        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.SOAK) {
+        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.SOAK)
+        {
             imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_3outof3));
         }
-        String attempt = currentPlant.getPlantPic();
-        imageView.setImageDrawable(Drawable.createFromPath(currentPlant.getPlantPic()));
+        //imageView.setImageDrawable(Drawable.createFromPath(currentPlant.getPlantPic()));
+        //context.getResources().getIdentifier (String name, String defType, String defPackage)
+        imageView.setImageDrawable(context.getResources().getDrawable( currentPlant.getPlantPic() ));
         Log.i("tag",currentPlant.getPlantName()); //sample message to logcat (for debugging)
         return rowView;
     }
