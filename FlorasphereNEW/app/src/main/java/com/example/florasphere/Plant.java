@@ -1,8 +1,12 @@
 package com.example.florasphere;
 
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Used to create a Plant object and access individual attributes of plant objects.
  */
@@ -11,6 +15,7 @@ public class Plant implements Serializable
     private String _plantName;
     private int _plantPic;
     private int _waterFreq;
+    private Calendar _lastWatering;
     public enum WaterAmt { LIGHT, MEDIUM, SOAK };
     public enum LightAmt { LOW, PARTIAL, FULL };
     private WaterAmt _waterAmt;
@@ -22,6 +27,7 @@ public class Plant implements Serializable
         _plantName = "My Plant";
         _plantPic  = 0;
         _waterFreq = 7;
+        _lastWatering = Calendar.getInstance();
         _waterAmt  = WaterAmt.MEDIUM;
         _lightAmt  = LightAmt.PARTIAL;
         _genInfo   = "";
@@ -32,9 +38,15 @@ public class Plant implements Serializable
         _plantName = name;
         _plantPic  = image;
         _waterFreq = wFreq;
+        _lastWatering = Calendar.getInstance();
         _waterAmt  = wAmt;
         _lightAmt  = lAmt;
         _genInfo   = info;
+    }
+
+    public void waterPlant(){
+        Log.i("tag", "watering the "+_plantName);
+        _lastWatering = Calendar.getInstance();
     }
 
     public String getPlantName()
@@ -56,6 +68,8 @@ public class Plant implements Serializable
     {
         return _waterAmt;
     }
+
+    public Calendar getLastWatering() { return _lastWatering; }
 
     public LightAmt getLightAmt()
     {
@@ -81,6 +95,8 @@ public class Plant implements Serializable
     {
         _waterFreq = freq;
     }
+
+    public void setLastWatering(Calendar cal) { _lastWatering = cal; }
 
     public void setWaterAmt( WaterAmt amt )
     {
