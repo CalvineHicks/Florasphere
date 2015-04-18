@@ -51,17 +51,8 @@ public class FlorasphereListActivity extends ListActivity {
             }
         });
 
-        // ADD PLANT BUTTON
-        Button addPlant = (Button) findViewById(R.id.add_plant);
-        addPlant.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent k = new Intent(FlorasphereListActivity.this, SearchSubmissionActivity.class);
-                startActivity(k);
-                Log.i("tag", "Add Plant button pressed, SearchSubmissionActivity started");
-            }
-        });
         Log.i("tag", "oh my5");
-        if (plant_list_size > 0) {
+        //if (plant_list_size > 0) {
             Log.i("tag", "oh my6");
 
             plantArray = plantlist.toArray();
@@ -80,10 +71,21 @@ public class FlorasphereListActivity extends ListActivity {
             Log.i("tag", "calling adapter row view"); //this is a comment that will be logged to LogCat
 
             listView.setAdapter(adapter);
-        } else {
+        //} else {
             //what do we do if the plant list is empty?
             //TO DO
-        }
+       // }
+
+        // ADD PLANT BUTTON
+        Button addPlant = (Button) findViewById(R.id.add_plant);
+        addPlant.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent k = new Intent(FlorasphereListActivity.this, SearchSubmissionActivity.class);
+                startActivity(k);
+                Log.i("tag", "Add Plant button pressed, SearchSubmissionActivity started");
+            }
+        });
+
         //cursor.close();
         //dh.close();
     }

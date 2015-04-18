@@ -5,11 +5,23 @@
     android:orientation="vertical" >
     
     <TextView
+    android:id="@+id/title"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/search_results"
     android:layout_marginTop="10dp"
     android:textSize="20dp" 
     android:layout_gravity="center"/>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="450dp"
+        android:layout_alignParentLeft="true"
+        android:divider="#000000"
+        android:dividerHeight="1px"
+        android:layout_below="@id/title"
+        >
+    </ListView>
 
 </LinearLayout>

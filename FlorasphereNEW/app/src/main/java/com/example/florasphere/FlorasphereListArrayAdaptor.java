@@ -57,6 +57,7 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 currentPlant.waterPlant();
+                currentPlant.setWaterAmt(Plant.WaterAmt.SOAK);
             }
         });
         Log.i("tag",currentPlant.getPlantName()); //sample message to logcat (for debugging)
