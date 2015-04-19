@@ -26,18 +26,25 @@ public class SearchResultsActivity extends Activity{
         Plant resultPlant;
         //retrieve string from serachSubmissionActivity
         String plantSearchText;
+        String plantSearchState;
+
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
                 plantSearchText= null;
+                plantSearchState= null;
             } else {
-                plantSearchText= extras.getString("STRING_I_NEED");
+                plantSearchText = extras.getString("STRING_TO_EXTRACT");
+                plantSearchState = extras.getString("STATE");
             }
         } else {
-            plantSearchText= (String) savedInstanceState.getSerializable("STRING_I_NEED");
+            plantSearchText= (String) savedInstanceState.getSerializable("STRING_TO_EXTRACT");
+            plantSearchState = (String) savedInstanceState.getSerializable("STATE");
+
         }
 
         Toast.makeText(context, "You set "+plantSearchText+" as the search parameter", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "You set "+plantSearchState+" as the search state", Toast.LENGTH_LONG).show();
         resultPlant = ps.getPlant(plantSearchText);
 
         //TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
