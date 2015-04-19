@@ -40,7 +40,7 @@ public class SearchResultsActivity extends Activity{
         Toast.makeText(context, "You set "+plantSearchText+" as the search parameter", Toast.LENGTH_LONG).show();
         resultPlant = ps.getPlant(plantSearchText);
 
-        TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
+        //TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
+        //ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
     }
 }

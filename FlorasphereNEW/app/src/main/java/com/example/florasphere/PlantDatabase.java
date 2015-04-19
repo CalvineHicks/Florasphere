@@ -193,12 +193,6 @@ public class PlantDatabase extends SQLiteOpenHelper
             Log.i( "tag", "PlantDatabase.getAllPlantNames(): getReadableDatabase() Failed: " + se.getMessage() );
             throw se;
         }
-        catch( Exception e )
-        {
-            Log.i( "tag", "PlantDatabase.getAllPlantNames(): Unhandled Exception: " + e.getMessage() );
-            throw e;
-        }
-
         return plantNames;
     }
 }
