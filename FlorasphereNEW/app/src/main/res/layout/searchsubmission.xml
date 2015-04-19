@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
-        android:hint="plant name tester gotta test"
+        android:hint="plant name"
         android:layout_below="@+id/title"
         android:layout_alignLeft="@+id/search"
         android:layout_alignStart="@+id/search">
@@ -29,34 +29,61 @@
         android:id="@+id/PlantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PlantName"
+        android:text="Plant Name"
         android:textSize="20dp"
         android:layout_alignBottom="@+id/search_text_by_name"
         android:layout_toLeftOf="@+id/title"
-        android:layout_toStartOf="@+id/title">
+        android:layout_toStartOf="@+id/title"
+        android:layout_marginLeft = "5dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/WateringStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Watering Status"
+        android:textSize="20dp"
+        android:layout_alignBottom="@+id/search_text_by_watering"
+        android:layout_toLeftOf="@+id/title"
+        android:layout_toStartOf="@+id/title"
+        android:layout_marginTop = "5dp"
+        android:layout_marginLeft = "5dp">
     </TextView>
 
     <EditText
         android:id="@+id/search_text_by_watering"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="75dp"
-        android:layout_below="@id/search_text_by_name"
-        android:hint="search for plant">
+        android:layout_marginTop="27dp"
+        android:hint="optional"
+        android:layout_below="@+id/search_text_by_name"
+        android:layout_alignLeft="@+id/search"
+        android:layout_alignStart="@+id/search"
+        >
 
     </EditText>
+
+    <TextView
+        android:id="@+id/SearchOther"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Other"
+        android:textSize="20dp"
+        android:layout_alignBottom="@+id/search_text_by_other"
+        android:layout_toLeftOf="@+id/title"
+        android:layout_toStartOf="@+id/title"
+        android:layout_marginLeft = "5dp">
+        </TextView>
 
     <EditText
         android:id="@+id/search_text_by_other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="75dp"
-        android:layout_below="@id/search_text_by_watering"
-        android:hint="search for plant">
-
-    </EditText>
+        android:layout_marginTop="27dp"
+        android:hint="optional"
+        android:layout_below="@+id/search_text_by_watering"
+        android:layout_alignLeft="@+id/search"
+        android:layout_alignStart="@+id/search"></EditText>
 
     <Button
         android:id="@+id/search"

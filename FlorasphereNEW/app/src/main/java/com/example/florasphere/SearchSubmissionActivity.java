@@ -20,17 +20,23 @@ public class SearchSubmissionActivity extends Activity{
         setContentView(R.layout.searchsubmission);
         final EditText plantSearch = (EditText)findViewById(R.id.search_text_by_name);
         final Context context = this;
+        final PlantStorage ps = new PlantStorage(this);
 
         Button search = (Button) findViewById(R.id.search);
         search.setOnClickListener( new View.OnClickListener(){
             public void onClick(View v) {
+                Plant result;
+                String strName =  plantSearch.getText().toString();
                 Intent k = new Intent(SearchSubmissionActivity.this, SearchResultsActivity.class);
 
                 if(validateInput(plantSearch.getText().toString())){
-                    Toast.makeText(context, "You set "+plantSearch.getText().toString()+" as the search parameter", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(context, "You set "+strName+" as the search parameter", Toast.LENGTH_LONG).show();
+                    //result = ps.getPlant(plantSearch.getText().toString());
+                    String keyIdentifer  = null;
+                    k.putExtra("STRING_I_NEED", strName);
+                    startActivity(k);
                 }
-
-                startActivity(k);
+                Toast.makeText(context, "please input a lowercase plant name with no symbols", Toast.LENGTH_LONG).show();
                 Log.i("tag", "Search button pressed, SearchResultsActivity started");
             }
         });
