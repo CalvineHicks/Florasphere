@@ -77,9 +77,18 @@ public class SearchSubmissionActivity extends Activity{
                 //Log.i("tag", "Search button pressed, SearchResultsActivity started");
             }
         });
-    }
 
-
+    Button view_all = (Button) findViewById(R.id.view_all);
+    view_all.setOnClickListener( new View.OnClickListener(){
+        public void onClick(View v) {
+            Intent k = new Intent(SearchSubmissionActivity.this, SearchResultsActivity.class);
+            String keyIdentifer  = null;
+            k.putExtra("STRING_TO_EXTRACT", "viewAllPlants");
+            k.putExtra("STATE", "viewAllPlants");
+            startActivity(k);
+        }
+    });
+}
 
 
     protected boolean validateNameInput(String string)
