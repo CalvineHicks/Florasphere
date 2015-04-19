@@ -62,7 +62,7 @@ public class SearchSubmissionActivity extends Activity{
 
                 if(validateNumberInput(wateringFrequencySearch.getText().toString())){
                     if (statePattern == null) {
-                        statePattern = new searchPlantLightAmountState();
+                        statePattern = new searchPlantWateringFrequencyState();
                     }
                     else{
                         statePattern = new invalidState();
