@@ -46,10 +46,10 @@ public class FlorasphereListActivity extends ListActivity{
             }
         });
 
-       if (plantlist.length > 0){
+        if (plantlist.length > 0){
             adapter = new FlorasphereListArrayAdaptor(this,plantlist);
 
-           //when a list Item is clicked go to new activity using intent
+            //when a list Item is clicked go to new activity using intent
             listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -59,9 +59,9 @@ public class FlorasphereListActivity extends ListActivity{
                     startActivity(i);
                 }
             });
-        Log.i("tag", "calling adapter row view"); //this is a comment that will be logged to LogCat
+            Log.i("tag", "calling adapter row view"); //this is a comment that will be logged to LogCat
 
-        listView.setAdapter(adapter);
+            listView.setAdapter(adapter);
         }
         else{
             //what do we do if the plant list is empty?

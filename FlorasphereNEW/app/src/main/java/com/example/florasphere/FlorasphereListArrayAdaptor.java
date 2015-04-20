@@ -32,14 +32,14 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         //dh = new DatabaseHelper(context);
     }
 
-        public View getView(int position, View convertView, ViewGroup parent)
+    public View getView(int position, View convertView, ViewGroup parent)
     {
-          LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-          Plant currentPlant = values[position];
-          View rowView = inflater.inflate(R.layout.list_plant_list, parent, false);
-          TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
-          ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
-          ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        Plant currentPlant = values[position];
+        View rowView = inflater.inflate(R.layout.list_plant_list, parent, false);
+        TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
+        ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
         textView.setText(currentPlant.getPlantName());
         if(currentPlant.getWaterAmt() == Plant.WaterAmt.LIGHT) {
             imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_1outof3));
@@ -55,4 +55,5 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         return rowView;
     }
 }
+
 

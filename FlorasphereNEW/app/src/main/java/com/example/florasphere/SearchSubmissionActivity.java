@@ -62,7 +62,7 @@ public class SearchSubmissionActivity extends Activity{
 
                 if(validateNumberInput(wateringFrequencySearch.getText().toString())){
                     if (statePattern == null) {
-                        statePattern = new searchPlantWateringFrequencyState();
+                        statePattern = new searchPlantLightAmountState();
                     }
                     else{
                         statePattern = new invalidState();
@@ -113,7 +113,7 @@ public class SearchSubmissionActivity extends Activity{
         if(string.equals("light") || string.equals("medium") || string.equals("soak")){
             return true;
         }
-         Toast.makeText(SearchSubmissionActivity.this, "watering amount only takes options light, medium, and soak", Toast.LENGTH_LONG).show();
+        Toast.makeText(SearchSubmissionActivity.this, "watering amount only takes options light, medium, and soak", Toast.LENGTH_LONG).show();
         return false;
     }
 
@@ -125,7 +125,7 @@ public class SearchSubmissionActivity extends Activity{
         if(string.equals("low") || string.equals("partial") || string.equals("full")){
             return true;
         }
-            Toast.makeText(SearchSubmissionActivity.this, "light amount only takes options low, partial, or full", Toast.LENGTH_LONG).show();
+        Toast.makeText(SearchSubmissionActivity.this, "light amount only takes options low, partial, or full", Toast.LENGTH_LONG).show();
         return false;
     }
 
@@ -137,7 +137,7 @@ public class SearchSubmissionActivity extends Activity{
         }
         if(value.equals("1") || value.equals("2") || value.equals("3") || value.equals("4") ||value.equals("5")
                 || value.equals("6") || value.equals("7") || value.equals("8") || value.equals("9")) {
-          numValue = Integer.parseInt(value);
+            numValue = Integer.parseInt(value);
         }
         else{
             Toast.makeText(SearchSubmissionActivity.this, "Watering frequency only uses numbers 1-9", Toast.LENGTH_LONG).show();
