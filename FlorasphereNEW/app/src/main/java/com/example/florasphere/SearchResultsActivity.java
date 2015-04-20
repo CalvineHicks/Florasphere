@@ -53,7 +53,7 @@ public class SearchResultsActivity extends ListActivity{
             Log.i("tag", "oh nooos! " + plantSearchText);
         }
         else{
-            Log.i("tag", "meybe it is working: " + resultPlant[0].getWaterFreq() + "\n resorce should be: "+ R.drawable.succulent);
+            Log.i("tag", "meybe it is working: " + resultPlant[0].getWaterFreq() + "\n resorce should be: "+ R.drawable.succulent_family);
         }
         adapter = new SearchResultsArrayAdaptor(this, resultPlant);
 

@@ -28,13 +28,11 @@ public class NotificationService extends BroadcastReceiver {
 //        Random random = new Random();
         UserPlantlist plants = UserPlantlist.getInstance(context);
         Plant allPlants[] = plants.toArray();
-        Calendar current = Calendar.getInstance();
         for(Plant p : allPlants) {
-            Calendar temp = p.getLastWatering();
-            temp.add(Calendar.MINUTE, p.getWaterFreq());
+            int temp = p.getLastWatering();
+            temp--;
 
-
-            if (current.after(temp)) {
+            if ( temp < 1 ) {
                 // BEGIN_INCLUDE(build_action)
                 /** Create an intent that will be fired when the user clicks the notification.
                  * The intent needs to be packaged into a {@link android.app.PendingIntent} so that the
@@ -100,6 +98,7 @@ public class NotificationService extends BroadcastReceiver {
                         NOTIFICATION_SERVICE);
                 notificationManager.notify(NOTIFICATION_ID, builder.build());
             }
+            p.setLastWatering(temp);
         }
     }
 }

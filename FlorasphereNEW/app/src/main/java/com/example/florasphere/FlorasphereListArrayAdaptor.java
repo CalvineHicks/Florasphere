@@ -35,28 +35,28 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
 
     public View getView(int position, View convertView, ViewGroup parent)
     {
-          LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-          final Plant currentPlant = values[position];
-          View rowView = inflater.inflate(R.layout.list_plant_list, parent, false);
-          TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
-          ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
-          ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final Plant currentPlant = values[position];
+        View rowView = inflater.inflate(R.layout.list_plant_list, parent, false);
+        TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
+        ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
         textView.setText(currentPlant.getPlantName());
-        if(currentPlant.getWaterAmt() == Plant.WaterAmt.LIGHT) {
-            imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_1outof3));
+        //if(currentPlant.getWaterAmt() == Plant.WaterAmt.LIGHT) {
+        if( currentPlant.getLastWatering() < 1 ) {
+            imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_droplet_empty));
         }
-        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.MEDIUM) {
-            imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_2outof3));
+        else if( currentPlant.getLastWatering() < currentPlant.getWaterFreq()/2 ) {
+            imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_droplet_half));
         }
-        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.SOAK) {
-            imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_3outof3));
+        else {
+            imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_droplet_full));
         }
 
         imageView.setImageDrawable(context.getResources().getDrawable(currentPlant.getPlantPic()));
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 currentPlant.waterPlant();
-                currentPlant.setWaterAmt(Plant.WaterAmt.SOAK);
             }
         });
         Log.i("tag",currentPlant.getPlantName()); //sample message to logcat (for debugging)

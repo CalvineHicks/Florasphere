@@ -15,7 +15,7 @@ public class Plant implements Serializable
     private String _plantName;
     private int _plantPic;
     private int _waterFreq;
-    private Calendar _lastWatering;
+    private int _lastWatering;
     public enum WaterAmt { LIGHT, MEDIUM, SOAK };
     public enum LightAmt { LOW, PARTIAL, FULL };
     private WaterAmt _waterAmt;
@@ -27,7 +27,7 @@ public class Plant implements Serializable
         _plantName = "My Plant";
         _plantPic  = 0;
         _waterFreq = 7;
-        _lastWatering = Calendar.getInstance();
+        _lastWatering = 7;
         _waterAmt  = WaterAmt.MEDIUM;
         _lightAmt  = LightAmt.PARTIAL;
         _genInfo   = "";
@@ -38,7 +38,7 @@ public class Plant implements Serializable
         _plantName = name;
         _plantPic  = image;
         _waterFreq = wFreq;
-        _lastWatering = Calendar.getInstance();
+        _lastWatering = wFreq;
         _waterAmt  = wAmt;
         _lightAmt  = lAmt;
         _genInfo   = info;
@@ -46,7 +46,7 @@ public class Plant implements Serializable
 
     public void waterPlant(){
         Log.i("tag", "watering the "+_plantName);
-        _lastWatering = Calendar.getInstance();
+        _lastWatering = _waterFreq;
     }
 
     public String getPlantName()
@@ -69,7 +69,7 @@ public class Plant implements Serializable
         return _waterAmt;
     }
 
-    public Calendar getLastWatering() { return _lastWatering; }
+    public int getLastWatering() { return _lastWatering; }
 
     public LightAmt getLightAmt()
     {
@@ -96,7 +96,7 @@ public class Plant implements Serializable
         _waterFreq = freq;
     }
 
-    public void setLastWatering(Calendar cal) { _lastWatering = cal; }
+    public void setLastWatering( int day ) { _lastWatering = day; }
 
     public void setWaterAmt( WaterAmt amt )
     {
