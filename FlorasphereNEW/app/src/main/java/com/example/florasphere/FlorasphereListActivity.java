@@ -7,10 +7,8 @@ import android.view.Menu;
 import android.view.*;
 import android.widget.*;
 import android.content.Intent;
-import android.content.Context;
-
 /**
- * Created by calvineh on 3/1/15.  Modified by Jessica Lynch and Noah Dillon.
+ * Created by calvineh on 3/1/15.
  */
 public class FlorasphereListActivity extends ListActivity {
 
@@ -90,3 +88,4 @@ public class FlorasphereListActivity extends ListActivity {
         //dh.close();
     }
 }
+

@@ -25,6 +25,7 @@ public class SearchResultsActivity extends ListActivity{
 
         //variables
         final PlantStorage ps = new PlantStorage(this);
+        ps.initPlant();
 //        final Plant resultPlant[] = new Plant[1];
         //retrieve string from serachSubmissionActivity
         String plantSearchText;
@@ -49,7 +50,7 @@ public class SearchResultsActivity extends ListActivity{
         Toast.makeText(context, "You set "+plantSearchState+" as the search state", Toast.LENGTH_LONG).show();
         final Plant resultPlant[] = {ps.getPlant(plantSearchText)};
         if(resultPlant[0]==null){
-            Log.i("tag", "oh nooos!");
+            Log.i("tag", "oh nooos! " + plantSearchText);
         }
         else{
             Log.i("tag", "meybe it is working: " + resultPlant[0].getWaterFreq() + "\n resorce should be: "+ R.drawable.succulent);

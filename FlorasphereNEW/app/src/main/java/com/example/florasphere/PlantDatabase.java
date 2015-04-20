@@ -19,14 +19,6 @@ public class PlantDatabase extends SQLiteOpenHelper
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "PlantDatabase";
     private static SQLiteDatabase.CursorFactory factory = null;
-/*    private static final String TABLE_CREATE =
-            "CREATE TABLE " + TABLE_NAME + "("    +
-                        "PLANT_NAME  TEXT, "      +
-                        "PLANT_PIC   HYPERLINK, " +
-                        "WATER_FREQ  INTEGER, "   +
-                        "WATER_AMT   TEXT, "      +
-                        "LIGHT_AMT   TEXT, "      +
-                        "GEN_INFO    MEMO "       + ");"; */
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_NAME + "("    +
                     "PLANT_NAME  TEXT, "      +
@@ -66,7 +58,6 @@ public class PlantDatabase extends SQLiteOpenHelper
 
     public void insertPlant( String plantName, int plantPic, int waterFreq, Plant.WaterAmt wAmt, Plant.LightAmt lAmt, String genInfo )
     {
-
         Plant p = getPlant( plantName );
 
         ContentValues cv = new ContentValues();
@@ -129,7 +120,6 @@ public class PlantDatabase extends SQLiteOpenHelper
             try
             {
                 Cursor c = db.query(TABLE_NAME, columns, "PLANT_NAME = \"" + plantName + "\"", null, null, null, null);
-
 
                 if (c.moveToFirst())
                 {

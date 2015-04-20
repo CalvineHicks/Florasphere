@@ -71,14 +71,16 @@
         android:layout_alignBottom="@+id/search_text_by_watering_frequency"
         android:layout_toLeftOf="@+id/title"
         android:layout_toStartOf="@+id/title"
-        android:layout_marginLeft = "5dp">
-        </TextView>
+        android:layout_marginLeft = "5dp"
+        android:layout_marginTop = "10dp">
+    </TextView>
 
     <EditText
         android:id="@+id/search_text_by_watering_frequency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
+        android:layout_marginLeft="5dp"
         android:layout_below="@+id/search_text_by_watering_amount"
         android:layout_alignLeft="@+id/search"
         android:layout_alignStart="@+id/search"
@@ -139,4 +141,3 @@
         />
 
 </RelativeLayout>
-

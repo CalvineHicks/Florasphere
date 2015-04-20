@@ -1,7 +1,6 @@
 package com.example.florasphere;
 
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
@@ -64,4 +63,5 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         return rowView;
     }
 }
+
 
