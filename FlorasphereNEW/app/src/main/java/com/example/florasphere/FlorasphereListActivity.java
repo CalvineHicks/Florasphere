@@ -23,7 +23,8 @@ public class FlorasphereListActivity extends ListActivity{
         ListView listView = getListView();
         for (int i = 0; i< plant_list_size; i++) {
             plantlist[i] = new Plant(); //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
-            plantlist[i].setPlantName("test"+i);
+            plantlist[i].setPlantName("test " + i);
+            plantlist[i].setPlantPic(R.drawable.succulent_family);
         }
         //plantlist[0] = "testing"; //strings represent plant objects and are parsed by the FlorasphereListArrayAdaptor
 
@@ -55,7 +56,7 @@ public class FlorasphereListActivity extends ListActivity{
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Log.i("tag", ""+id);
                     Intent i = new Intent(FlorasphereListActivity.this, PlantInfoActivity.class);
-                    i.putExtra("plant",plantlist[(int)id]); //This would be used to add extra information outside of context to pass on to next class\
+                    i.putExtra("plant",plantlist[position]); //This would be used to add extra information outside of context to pass on to next class\
                     startActivity(i);
                 }
             });
