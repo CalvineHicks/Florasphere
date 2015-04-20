@@ -18,11 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
-<<<<<<< HEAD
-        android:hint="plant name tester gotta test"
-=======
         android:hint="plant name"
->>>>>>> origin/master
         android:layout_below="@+id/title"
         android:layout_alignLeft="@+id/search"
         android:layout_alignStart="@+id/search">
@@ -33,35 +29,6 @@
         android:id="@+id/PlantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:text="PlantName"
-        android:textSize="20dp"
-        android:layout_alignBottom="@+id/search_text_by_name"
-        android:layout_toLeftOf="@+id/title"
-        android:layout_toStartOf="@+id/title">
-    </TextView>
-
-    <EditText
-        android:id="@+id/search_text_by_watering"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="75dp"
-        android:layout_below="@id/search_text_by_name"
-        android:hint="search for plant">
-
-    </EditText>
-
-    <EditText
-        android:id="@+id/search_text_by_other"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="75dp"
-        android:layout_below="@id/search_text_by_watering"
-        android:hint="search for plant">
-    </EditText>
-=======
         android:text="Plant Name"
         android:textSize="20dp"
         android:layout_alignBottom="@+id/search_text_by_name"
@@ -104,14 +71,16 @@
         android:layout_alignBottom="@+id/search_text_by_watering_frequency"
         android:layout_toLeftOf="@+id/title"
         android:layout_toStartOf="@+id/title"
-        android:layout_marginLeft = "5dp">
-        </TextView>
+        android:layout_marginLeft = "5dp"
+        android:layout_marginTop = "10dp">
+    </TextView>
 
     <EditText
         android:id="@+id/search_text_by_watering_frequency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
+        android:layout_marginLeft="5dp"
         android:layout_below="@+id/search_text_by_watering_amount"
         android:layout_alignLeft="@+id/search"
         android:layout_alignStart="@+id/search"
@@ -138,24 +107,17 @@
         android:layout_alignLeft="@+id/search"
         android:layout_alignStart="@+id/search"
         android:hint="(low,partial,full)"></EditText>
->>>>>>> origin/master
 
     <Button
         android:id="@+id/search"
         android:text="search by single field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:layout_below="@id/search_text_by_other"
-=======
         android:layout_below="@id/search_text_by_light_amount"
->>>>>>> origin/master
         android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"
         android:layout_centerHorizontal="true"
         />
-<<<<<<< HEAD
-=======
 
     <TextView
         android:id="@+id/or"
@@ -178,6 +140,4 @@
         android:layout_centerHorizontal="true"
         />
 
->>>>>>> origin/master
 </RelativeLayout>
-
