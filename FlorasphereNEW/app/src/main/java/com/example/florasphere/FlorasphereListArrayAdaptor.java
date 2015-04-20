@@ -1,7 +1,6 @@
 package com.example.florasphere;
 
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +13,6 @@ import android.util.Log;
 /**
  * Created by calvineh on 3/1/15.
  */
-
 public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
 {
     private final Context context;
@@ -36,30 +34,26 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
 
     public View getView(int position, View convertView, ViewGroup parent)
     {
-          LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-          Plant currentPlant = values[position];
-          View rowView = inflater.inflate(R.layout.list_plant_list, parent, false);
-          TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
-          ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
-          ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        Plant currentPlant = values[position];
+        View rowView = inflater.inflate(R.layout.list_plant_list, parent, false);
+        TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
+        ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
         textView.setText(currentPlant.getPlantName());
-        if(currentPlant.getWaterAmt() == Plant.WaterAmt.LIGHT)
-        {
+        if(currentPlant.getWaterAmt() == Plant.WaterAmt.LIGHT) {
             imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_1outof3));
         }
-        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.MEDIUM)
-        {
+        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.MEDIUM) {
             imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_2outof3));
         }
-        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.SOAK)
-        {
+        else if(currentPlant.getWaterAmt() == Plant.WaterAmt.SOAK) {
             imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_drop_3outof3));
         }
-        //imageView.setImageDrawable(Drawable.createFromPath(currentPlant.getPlantPic()));
-        //context.getResources().getIdentifier (String name, String defType, String defPackage)
-        imageView.setImageDrawable(context.getResources().getDrawable( currentPlant.getPlantPic() ));
+        imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.succulent));
         Log.i("tag",currentPlant.getPlantName()); //sample message to logcat (for debugging)
         return rowView;
     }
 }
+
 
