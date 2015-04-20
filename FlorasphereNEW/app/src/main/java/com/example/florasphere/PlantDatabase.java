@@ -72,6 +72,7 @@ public class PlantDatabase extends SQLiteOpenHelper
         if( p == null )
         {
             Log.i("tag", "insertPlant(): Inserting into database: plantName = " + cv.getAsString( "PLANT_NAME" ) );
+
             try
             {
                 if (getWritableDatabase().insert(TABLE_NAME, null, cv) == -1)

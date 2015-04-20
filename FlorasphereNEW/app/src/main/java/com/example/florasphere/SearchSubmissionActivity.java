@@ -19,10 +19,12 @@ public class SearchSubmissionActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchsubmission);
+
         final EditText plantSearch = (EditText)findViewById(R.id.search_text_by_name);
         final EditText wateringFrequencySearch = (EditText)findViewById(R.id.search_text_by_watering_frequency);
         final EditText wateringAmountSearch = (EditText)findViewById(R.id.search_text_by_watering_amount);
         final EditText lightAmountSearch = (EditText)findViewById(R.id.search_text_by_light_amount);
+
         final Context context = this;
         final PlantStorage ps = new PlantStorage(this);
 

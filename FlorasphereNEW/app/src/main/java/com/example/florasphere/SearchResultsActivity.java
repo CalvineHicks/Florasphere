@@ -12,18 +12,21 @@ import android.view.*;
 import android.widget.*;
 import android.content.Intent;
 
+public class SearchResultsActivity extends ListActivity{
 
+    SearchResultsArrayAdaptor adapter;
 
-public class SearchResultsActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_result_2);
+        setContentView(R.layout.searchresults);
         Context context = this;
 
+        ListView listView = getListView();
 
         //variables
         final PlantStorage ps = new PlantStorage(this);
-        Plant resultPlant;
+        ps.initPlant();
+//        final Plant resultPlant[] = new Plant[1];
         //retrieve string from serachSubmissionActivity
         String plantSearchText;
         String plantSearchState;
@@ -45,7 +48,27 @@ public class SearchResultsActivity extends Activity{
 
         Toast.makeText(context, "You set "+plantSearchText+" as the search parameter", Toast.LENGTH_LONG).show();
         Toast.makeText(context, "You set "+plantSearchState+" as the search state", Toast.LENGTH_LONG).show();
-        resultPlant = ps.getPlant(plantSearchText);
+        final Plant resultPlant[] = {ps.getPlant(plantSearchText)};
+        if(resultPlant[0]==null){
+            Log.i("tag", "oh nooos! " + plantSearchText);
+        }
+        else{
+            Log.i("tag", "meybe it is working: " + resultPlant[0].getWaterFreq() + "\n resorce should be: "+ R.drawable.succulent);
+        }
+        adapter = new SearchResultsArrayAdaptor(this, resultPlant);
+
+        //when a list Item is clicked go to new activity using intent
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("tag", "" + id);
+                Intent i = new Intent(SearchResultsActivity.this, PlantInfoActivity.class);
+                i.putExtra("plant", resultPlant[(int) id]); //This would be used to add extra information outside of context to pass on to next class\
+                startActivity(i);
+            }
+        });
+
+        listView.setAdapter(adapter);
 
         //TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
         //ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
