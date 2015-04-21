@@ -18,7 +18,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_toRightOf="@id/title"/> -->
-    
+
     <ImageButton
     android:id="@+id/settings"
     android:layout_width="10dp"
@@ -30,12 +30,12 @@
     android:adjustViewBounds="true"
     />
 
-
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="450dp"
         android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
         android:divider="#000000"
         android:dividerHeight="1px"
         android:layout_below="@id/title"
