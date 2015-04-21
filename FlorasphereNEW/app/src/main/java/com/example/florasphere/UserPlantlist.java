@@ -27,7 +27,7 @@ public class UserPlantlist
 
     private UserPlantlist(Context context)
     {
-       userPlantList = new ArrayList<>();
+       userPlantList = new ArrayList<Plant>();
        this.context = context;
        //this is testing of the stuff and things
 //       Plant p = new Plant( "Boston Fern", R.drawable.boston_fern , 5, Plant.WaterAmt.MEDIUM, Plant.LightAmt.FULL,
