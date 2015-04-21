@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import android.content.Intent;
-
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
@@ -23,6 +22,7 @@ public class SearchSubmissionActivity extends Activity{
         final EditText wateringFrequencySearch = (EditText)findViewById(R.id.search_text_by_watering_frequency);
         final EditText wateringAmountSearch = (EditText)findViewById(R.id.search_text_by_watering_amount);
         final EditText lightAmountSearch = (EditText)findViewById(R.id.search_text_by_light_amount);
+
         final Context context = this;
         final PlantStorage ps = new PlantStorage(this);
 
@@ -62,7 +62,7 @@ public class SearchSubmissionActivity extends Activity{
 
                 if(validateNumberInput(wateringFrequencySearch.getText().toString())){
                     if (statePattern == null) {
-                        statePattern = new searchPlantWateringFrequencyState();
+                        statePattern = new searchPlantLightAmountState();
                     }
                     else{
                         statePattern = new invalidState();
@@ -113,7 +113,7 @@ public class SearchSubmissionActivity extends Activity{
         if(string.equals("light") || string.equals("medium") || string.equals("soak")){
             return true;
         }
-         Toast.makeText(SearchSubmissionActivity.this, "watering amount only takes options light, medium, and soak", Toast.LENGTH_LONG).show();
+        Toast.makeText(SearchSubmissionActivity.this, "watering amount only takes options light, medium, and soak", Toast.LENGTH_LONG).show();
         return false;
     }
 
@@ -125,7 +125,7 @@ public class SearchSubmissionActivity extends Activity{
         if(string.equals("low") || string.equals("partial") || string.equals("full")){
             return true;
         }
-            Toast.makeText(SearchSubmissionActivity.this, "light amount only takes options low, partial, or full", Toast.LENGTH_LONG).show();
+        Toast.makeText(SearchSubmissionActivity.this, "light amount only takes options low, partial, or full", Toast.LENGTH_LONG).show();
         return false;
     }
 
@@ -137,7 +137,7 @@ public class SearchSubmissionActivity extends Activity{
         }
         if(value.equals("1") || value.equals("2") || value.equals("3") || value.equals("4") ||value.equals("5")
                 || value.equals("6") || value.equals("7") || value.equals("8") || value.equals("9")) {
-          numValue = Integer.parseInt(value);
+            numValue = Integer.parseInt(value);
         }
         else{
             Toast.makeText(SearchSubmissionActivity.this, "Watering frequency only uses numbers 1-9", Toast.LENGTH_LONG).show();
@@ -202,5 +202,18 @@ public class SearchSubmissionActivity extends Activity{
         public void search(){
             Toast.makeText(SearchSubmissionActivity.this, "please search one field and only one field", Toast.LENGTH_LONG).show();
         }
+    }
+
+    protected boolean validateInput(String string)
+    {
+        if(string == ""){
+            return false;
+        }
+        if(Pattern.matches("[A-Z a-z]+", string)){
+            return true;
+        }
+        return false;
+
+
     }
 }
