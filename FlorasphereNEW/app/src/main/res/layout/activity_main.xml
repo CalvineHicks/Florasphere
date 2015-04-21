@@ -48,5 +48,6 @@
         android:layout_height="wrap_content"
         android:text="@string/add_plant"
         android:layout_centerHorizontal="true"
-        android:layout_below="@android:id/list"/>
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

@@ -26,5 +26,6 @@ public class SettingsActivity extends Activity{
                 Log.i("tag", "Contact Us button pressed, ContactUs started");
             }
         });
+
     }
 }

@@ -10,9 +10,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import android.util.Log;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 /**
  * Creates a single local database that is located on user's phone.
  */
@@ -22,14 +19,6 @@ public class PlantDatabase extends SQLiteOpenHelper
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "PlantDatabase";
     private static SQLiteDatabase.CursorFactory factory = null;
-/*    private static final String TABLE_CREATE =
-            "CREATE TABLE " + TABLE_NAME + "("    +
-                        "PLANT_NAME  TEXT, "      +
-                        "PLANT_PIC   HYPERLINK, " +
-                        "WATER_FREQ  INTEGER, "   +
-                        "WATER_AMT   TEXT, "      +
-                        "LIGHT_AMT   TEXT, "      +
-                        "GEN_INFO    MEMO "       + ");"; */
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_NAME + "("    +
                     "PLANT_NAME  TEXT, "      +
@@ -67,7 +56,7 @@ public class PlantDatabase extends SQLiteOpenHelper
         // Not sure if I need to implement this class... ??
     }
 
-    public void insertPlant( String plantName, String plantPic, int waterFreq, Plant.WaterAmt wAmt, Plant.LightAmt lAmt, String genInfo )
+    public void insertPlant( String plantName, int plantPic, int waterFreq, Plant.WaterAmt wAmt, Plant.LightAmt lAmt, String genInfo )
     {
         Plant p = getPlant( plantName );
 
@@ -82,7 +71,8 @@ public class PlantDatabase extends SQLiteOpenHelper
 
         if( p == null )
         {
-            Log.i("tag", "insertPlant():Inserting into database");
+            Log.i("tag", "insertPlant(): Inserting into database: plantName = " + cv.getAsString( "PLANT_NAME" ) );
+
             try
             {
                 if (getWritableDatabase().insert(TABLE_NAME, null, cv) == -1)
@@ -100,15 +90,10 @@ public class PlantDatabase extends SQLiteOpenHelper
         }
         else
         {
-            Log.i("tag", "insertPlant(): Replacing plant into database");
+            Log.i("tag", "insertPlant(): Replacing plant into database: plantName = " + cv.getAsString( "PLANT_NAME" ) );
             try
             {
-                if (getWritableDatabase().replace(TABLE_NAME, null, cv) == -1)
-                {
-                    String msg = "insertPlant(): replace() failed.";
-                    Log.i("tag", msg);
-                    throw new SQLiteException(msg);
-                }
+                getWritableDatabase().update( TABLE_NAME, cv, "PLANT_NAME=\"" + plantName + "\"", null );
             }
             catch (SQLiteException se)
             {
@@ -127,7 +112,7 @@ public class PlantDatabase extends SQLiteOpenHelper
     public Plant getPlant( String plantName )
     {
         String[] columns = {"PLANT_PIC", "WATER_FREQ", "WATER_AMT", "LIGHT_AMT", "GEN_INFO"};
-        Plant p = null;
+        Plant p          = null;
         try
         {
             SQLiteDatabase db = getReadableDatabase();
@@ -136,17 +121,21 @@ public class PlantDatabase extends SQLiteOpenHelper
             {
                 Cursor c = db.query(TABLE_NAME, columns, "PLANT_NAME = \"" + plantName + "\"", null, null, null, null);
 
-                if (c != null)
+                if (c.moveToFirst())
                 {
-                    c.moveToFirst();
-                    p = new Plant();
-                    p.setPlantName(plantName);
-                    p.setPlantPic(c.getString(0));
-                    p.setWaterFreq(c.getInt(1));
-                    p.setWaterAmt(Plant.WaterAmt.valueOf(c.getString(2)));
-                    p.setLightAmt(Plant.LightAmt.valueOf(c.getString(3)));
-                    p.setGenInfo(c.getString(4));
+                    do
+                    {
+                        p = new Plant();
+                        p.setPlantName(plantName);
+                        p.setPlantPic(c.getInt(0));
+                        p.setWaterFreq(c.getInt(1));
+                        p.setWaterAmt(Plant.WaterAmt.valueOf(c.getString(2)));
+                        p.setLightAmt(Plant.LightAmt.valueOf(c.getString(3)));
+                        p.setGenInfo(c.getString(4));
+
+                    } while (c.moveToNext());
                 }
+                c.close();
             }
             catch( SQLiteException se )
             {
@@ -190,6 +179,7 @@ public class PlantDatabase extends SQLiteOpenHelper
                 for (int i = 0; i < count; i++)
                 {
                     plantNames[i] = c.getString(0);
+                    c.moveToNext();
                     Log.i("tag", "PlantDatabase.getAllPlantNames(): " + i + ") query returned " + plantNames[i]);
                 }
             }
@@ -204,14 +194,6 @@ public class PlantDatabase extends SQLiteOpenHelper
             Log.i( "tag", "PlantDatabase.getAllPlantNames(): getReadableDatabase() Failed: " + se.getMessage() );
             throw se;
         }
-        catch( Exception e )
-        {
-            Log.i( "tag", "PlantDatabase.getAllPlantNames(): Unhandled Exception: " + e.getMessage() );
-            throw e;
-        }
-
         return plantNames;
     }
-
-
 }
