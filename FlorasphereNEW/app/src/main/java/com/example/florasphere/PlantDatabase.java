@@ -111,7 +111,7 @@ public class PlantDatabase extends SQLiteOpenHelper
     public Plant getPlant( String plantName )
     {
         String[] columns = {"PLANT_PIC", "WATER_FREQ", "WATER_AMT", "LIGHT_AMT", "GEN_INFO"};
-        Plant p          = null;
+        Plant p = null;
         try
         {
             SQLiteDatabase db = getReadableDatabase();

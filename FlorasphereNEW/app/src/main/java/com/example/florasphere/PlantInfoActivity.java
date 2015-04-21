@@ -1,5 +1,6 @@
 package com.example.florasphere;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.app.*;
 import android.util.Log;
@@ -20,8 +21,11 @@ public class PlantInfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent i = getIntent();
         Plant p = (Plant) i.getSerializableExtra("plant");
-        Log.i("tag", p.getPlantName());
         setContentView(R.layout.plantinfo);
+        TextView plantname = (TextView) findViewById(R.id.plant_name);
+        Log.i("tag", p.getPlantName());
+        plantname.setText(p.getPlantName());
+
 
         //get view objects
         TextView plantName = (TextView) findViewById(R.id.plant_name);

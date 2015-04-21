@@ -4,22 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <TextView
+    <ImageView
     android:id="@+id/title"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/florasphere"
-	android:layout_centerHorizontal="true"
+    android:layout_height="50dp"
+    android:src="@drawable/florasphere"
+	android:layout_alignParentLeft="true"
     android:layout_marginTop="10dp"
-    android:layout_marginBottom="20dp"
-    android:textSize="20dp" />
+    android:layout_marginBottom="20dp" />
     
     <!-- <View
     android:id="@+id/view1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_toRightOf="@id/title"/> -->
-    
+
     <ImageButton
     android:id="@+id/settings"
     android:layout_width="10dp"
@@ -31,18 +30,18 @@
     android:adjustViewBounds="true"
     />
 
-
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="450dp"
         android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
         android:divider="#000000"
         android:dividerHeight="1px"
         android:layout_below="@id/title"
          >
     </ListView>
-    
+
     <Button
         android:id="@+id/add_plant"
         android:layout_width="wrap_content"
@@ -50,4 +49,5 @@
         android:text="@string/add_plant"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

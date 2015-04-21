@@ -73,7 +73,7 @@
         android:layout_toStartOf="@+id/title"
         android:layout_marginLeft = "5dp"
         android:layout_marginTop = "10dp">
-        </TextView>
+    </TextView>
 
     <EditText
         android:id="@+id/search_text_by_watering_frequency"
@@ -141,4 +141,3 @@
         />
 
 </RelativeLayout>
-

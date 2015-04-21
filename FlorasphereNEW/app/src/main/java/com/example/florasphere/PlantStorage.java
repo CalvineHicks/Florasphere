@@ -28,7 +28,7 @@ public class PlantStorage
         //int imageFile = R.drawable.plant_image;
         //Note: change to filename if needed: "\res\drawable-hdpi\succulent_family.jpg"
         //References: http://houseplants.about.com/od/growinghealthyhouseplants/a/SucculentsBasic.htm and http://www.csssj.org/welcome_visitors/basic_culture.html
-        int imageFile1 = R.drawable.succulent;
+        int imageFile1 = R.drawable.succulent_family;
         this.insertPlant( "Succulent", imageFile1 , 7, Plant.WaterAmt.SOAK, Plant.LightAmt.FULL,
                 "Keep your succulent in soil and in a pot that allows good drainage. "      +
                         "Growing season is from Spring into Fall. Resting time is from late "       +
@@ -162,11 +162,7 @@ public class PlantStorage
             }
         }
         return result;
+
     }
-
-
-
-
-
-
 }
+
