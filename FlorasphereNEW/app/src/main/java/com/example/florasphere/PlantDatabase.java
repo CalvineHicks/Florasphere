@@ -19,14 +19,6 @@ public class PlantDatabase extends SQLiteOpenHelper
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "PlantDatabase";
     private static SQLiteDatabase.CursorFactory factory = null;
-/*    private static final String TABLE_CREATE =
-            "CREATE TABLE " + TABLE_NAME + "("    +
-                        "PLANT_NAME  TEXT, "      +
-                        "PLANT_PIC   HYPERLINK, " +
-                        "WATER_FREQ  INTEGER, "   +
-                        "WATER_AMT   TEXT, "      +
-                        "LIGHT_AMT   TEXT, "      +
-                        "GEN_INFO    MEMO "       + ");"; */
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_NAME + "("    +
                     "PLANT_NAME  TEXT, "      +
@@ -79,11 +71,9 @@ public class PlantDatabase extends SQLiteOpenHelper
 
         if( p == null )
         {
-<<<<<<< HEAD
-            Log.i("tag", "insertPlant():Inserting into database");
-=======
+
             Log.i("tag", "insertPlant(): Inserting into database: plantName = " + cv.getAsString( "PLANT_NAME" ) );
->>>>>>> master
+
             try
             {
                 if (getWritableDatabase().insert(TABLE_NAME, null, cv) == -1)
@@ -101,22 +91,11 @@ public class PlantDatabase extends SQLiteOpenHelper
         }
         else
         {
-<<<<<<< HEAD
-            Log.i("tag", "insertPlant(): Replacing plant into database");
-            try
-            {
-                if (getWritableDatabase().replace(TABLE_NAME, null, cv) == -1)
-                {
-                    String msg = "insertPlant(): replace() failed.";
-                    Log.i("tag", msg);
-                    throw new SQLiteException(msg);
-                }
-=======
+
             Log.i("tag", "insertPlant(): Replacing plant into database: plantName = " + cv.getAsString( "PLANT_NAME" ) );
             try
             {
                 getWritableDatabase().update( TABLE_NAME, cv, "PLANT_NAME=\"" + plantName + "\"", null );
->>>>>>> master
             }
             catch (SQLiteException se)
             {
@@ -135,11 +114,9 @@ public class PlantDatabase extends SQLiteOpenHelper
     public Plant getPlant( String plantName )
     {
         String[] columns = {"PLANT_PIC", "WATER_FREQ", "WATER_AMT", "LIGHT_AMT", "GEN_INFO"};
-<<<<<<< HEAD
+
         Plant p = null;
-=======
-        Plant p          = null;
->>>>>>> master
+
         try
         {
             SQLiteDatabase db = getReadableDatabase();
@@ -148,19 +125,6 @@ public class PlantDatabase extends SQLiteOpenHelper
             {
                 Cursor c = db.query(TABLE_NAME, columns, "PLANT_NAME = \"" + plantName + "\"", null, null, null, null);
 
-<<<<<<< HEAD
-                if (c != null)
-                {
-                    c.moveToFirst();
-                    p = new Plant();
-                    p.setPlantName(plantName);
-                    p.setPlantPic(c.getString(0));
-                    p.setWaterFreq(c.getInt(1));
-                    p.setWaterAmt(Plant.WaterAmt.valueOf(c.getString(2)));
-                    p.setLightAmt(Plant.LightAmt.valueOf(c.getString(3)));
-                    p.setGenInfo(c.getString(4));
-                }
-=======
                 if (c.moveToFirst())
                 {
                     do
@@ -176,7 +140,6 @@ public class PlantDatabase extends SQLiteOpenHelper
                     } while (c.moveToNext());
                 }
                 c.close();
->>>>>>> master
             }
             catch( SQLiteException se )
             {
@@ -202,50 +165,10 @@ public class PlantDatabase extends SQLiteOpenHelper
         String[] plantNames = null;
 
         try
-<<<<<<< HEAD
         {
             Log.i( "tag", "PlantDatabase.getAllPlantNames(): Starting query: " );
             Cursor c = getReadableDatabase().query(TABLE_NAME, column, null, null, null, null, null);
             Log.i( "tag", "PlantDatabase.getAllPlantNames(): Finished query: " );
-
-            int count = c.getCount();
-
-            Log.i( "tag", "PlantDatabase.getAllPlantNames(): count = " + count + ", column count = " + c.getColumnCount() );
-
-            if( count > 0 )
-            {
-                plantNames = new String[count];
-
-                c.moveToFirst();
-
-                for (int i = 0; i < count; i++)
-                {
-                    plantNames[i] = c.getString(0);
-                    Log.i("tag", "PlantDatabase.getAllPlantNames(): " + i + ") query returned " + plantNames[i]);
-                }
-            }
-            else
-            {
-                Log.i( "tag", "PlantDatabase.getAllPlantNames(): No plants found in the database." );
-            }
-            c.close();
-        }
-        catch( SQLiteException se )
-        {
-            Log.i( "tag", "PlantDatabase.getAllPlantNames(): getReadableDatabase() Failed: " + se.getMessage() );
-            throw se;
-        }
-        catch( Exception e )
-        {
-            Log.i( "tag", "PlantDatabase.getAllPlantNames(): Unhandled Exception: " + e.getMessage() );
-            throw e;
-        }
-=======
-        {
-            Log.i( "tag", "PlantDatabase.getAllPlantNames(): Starting query: " );
-            Cursor c = getReadableDatabase().query(TABLE_NAME, column, null, null, null, null, null);
-            Log.i( "tag", "PlantDatabase.getAllPlantNames(): Finished query: " );
->>>>>>> master
 
             int count = c.getCount();
 

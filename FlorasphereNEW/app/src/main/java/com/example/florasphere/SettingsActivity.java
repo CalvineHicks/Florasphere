@@ -16,6 +16,7 @@ public class SettingsActivity extends Activity{
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.settings);
 
         Button contactUs = (Button) findViewById(R.id.activity_contact_us);

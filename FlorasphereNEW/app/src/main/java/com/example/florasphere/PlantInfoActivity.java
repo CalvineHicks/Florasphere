@@ -1,5 +1,6 @@
 package com.example.florasphere;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.app.*;
 import android.util.Log;
@@ -21,7 +22,8 @@ public class PlantInfoActivity extends Activity {
         Log.i("tag", p.getPlantName());
         plantname.setText(p.getPlantName());
 
-
+        ImageView plantImage = (ImageView) findViewById(R.id.imageView);
+        plantImage.setImageDrawable(this.getResources().getDrawable(p.getPlantPic()));
     }
 
     public void onBackPressed(){
