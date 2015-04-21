@@ -71,9 +71,7 @@ public class PlantDatabase extends SQLiteOpenHelper
 
         if( p == null )
         {
-
             Log.i("tag", "insertPlant(): Inserting into database: plantName = " + cv.getAsString( "PLANT_NAME" ) );
-
             try
             {
                 if (getWritableDatabase().insert(TABLE_NAME, null, cv) == -1)
@@ -91,7 +89,6 @@ public class PlantDatabase extends SQLiteOpenHelper
         }
         else
         {
-
             Log.i("tag", "insertPlant(): Replacing plant into database: plantName = " + cv.getAsString( "PLANT_NAME" ) );
             try
             {
@@ -114,9 +111,7 @@ public class PlantDatabase extends SQLiteOpenHelper
     public Plant getPlant( String plantName )
     {
         String[] columns = {"PLANT_PIC", "WATER_FREQ", "WATER_AMT", "LIGHT_AMT", "GEN_INFO"};
-
         Plant p = null;
-
         try
         {
             SQLiteDatabase db = getReadableDatabase();
