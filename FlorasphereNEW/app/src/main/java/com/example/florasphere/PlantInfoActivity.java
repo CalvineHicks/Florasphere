@@ -46,12 +46,12 @@ public class PlantInfoActivity extends Activity {
 
     }
 
-    public void onBackPressed(){
-        gotoFlorasphereListActivity();
-    }
-
-    public void gotoFlorasphereListActivity(){
-        Intent i = new Intent(this, FlorasphereListActivity.class);
-        startActivity(i);
-    }
+//    public void onBackPressed(){
+//        gotoFlorasphereListActivity();
+//    }
+//
+//    public void gotoFlorasphereListActivity(){
+//        Intent i = new Intent(this, FlorasphereListActivity.class);
+//        startActivity(i);
+//    }
 }

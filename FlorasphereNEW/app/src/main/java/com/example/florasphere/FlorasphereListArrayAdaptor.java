@@ -33,14 +33,14 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         //dh = new DatabaseHelper(context);
     }
 
-    public View getView(int position, View convertView, ViewGroup parent)
+    public View getView(final int position, final View convertView, final ViewGroup parent)
     {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final Plant currentPlant = values[position];
         View rowView = inflater.inflate(R.layout.list_plant_list, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.plant_name);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.plant_image);
-        ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
+        final ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.plant_status);
         textView.setText(currentPlant.getPlantName());
         //if(currentPlant.getWaterAmt() == Plant.WaterAmt.LIGHT) {
         if( currentPlant.getLastWatering() < 1 ) {
@@ -57,6 +57,8 @@ public class FlorasphereListArrayAdaptor extends ArrayAdapter<Plant>
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 currentPlant.waterPlant();
+                imageButton.setImageDrawable(context.getResources().getDrawable(R.drawable.water_droplet_full));
+                imageButton.refreshDrawableState();
             }
         });
         Log.i("tag",currentPlant.getPlantName()); //sample message to logcat (for debugging)

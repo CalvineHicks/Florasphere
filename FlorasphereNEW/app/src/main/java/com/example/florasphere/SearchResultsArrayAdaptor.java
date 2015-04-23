@@ -1,6 +1,7 @@
 package com.example.florasphere;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,8 @@ public class SearchResultsArrayAdaptor extends ArrayAdapter<Plant>
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 plants.addPlant(currentPlant);
+                Intent i = new Intent(context, FlorasphereListActivity.class);
+                context.startActivity(i);
             }
         });
         Log.i("tag", currentPlant.getPlantName()); //sample message to logcat (for debugging)
